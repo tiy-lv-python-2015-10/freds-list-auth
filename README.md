@@ -1,29 +1,32 @@
-# Fred's List Social Auth
+# Do It Live!
 
 ## Description
-Using python-social-auth implement at least 2 different social authentication options in addition to the username/password option. 
+Take either urly bird or fredslist and push it live to heroku.
+
+## Learning Objectives
+* Understanding good production practices
+* Be able to push a system live
+* Understand how to treat sensitive information in settings files
+* Logging
 
 ## Details
 
-### Learning Objectives
-* Understanding social authentication
-* Basic understanding of OAUTH
-
 ### Requirements
-* Pull request with django project
+* Working and live on Heroku
+* Can serve static assets
+
+### Deliverables
+* README.md including the below
+	* URL to the working site
+	* Examples of custom logging statements
+* No system files (.direnv, .envrc)
 
 ### Normal Mode
-* Implement at least 2 different social login options
-* Ensure that at least 1 view is secured to only authenticated users
-* Ensure that a user can use the secured view after only logging in via a social application
-* Ensure that a token is generated and can be used to authenticate to the api side
-
-#### Resources
-* [Documantation](http://python-social-auth.readthedocs.org/en/latest/)
-* [Backend Implementation help](https://github.com/omab/python-social-auth/tree/master/docs/backends)
+Pick either urly bird or fred's list then make sure that it can run on heroku.  This should include:
+* No sensitive data including secret key, database information, api keys/ids
+* Must be able to serve static assets live
+* Web app should have appropraite error pages for 400s and 500s
+* Must have useful logging of some sort.  Pick at least 3 logging statements that can be seen in `heroku logs`
 
 ### Hard Mode
-* Implement the email option in the pipeline to allow users to use different backend authentications but still tie to the same user
-
-#### Resources
-[Pipelines](http://python-social-auth.readthedocs.org/en/latest/pipeline.html)
+* Dump the data from your local system and import it on live
