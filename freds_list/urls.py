@@ -35,10 +35,12 @@ from django.views.decorators.cache import cache_page
 urlpatterns = [
 
     ####################  REGISTRATION/ ADMIN/ LOGIN ##########
+    url('', include('social.apps.django_app.urls', namespace='social')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('django.contrib.auth.urls')),
     url(r'^$', StateList.as_view(), name="home"),
     url(r'^register/', CreateUser.as_view(), name='register'),
+
 
 
     ####################  SHARED (anyone can access) ##########

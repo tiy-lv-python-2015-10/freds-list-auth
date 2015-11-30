@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = "*$7h-^y68wdaoh5!zl@es+$!4xz9r&#1!3f+r46g+*r36&tvv3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django_extensions',
     'debug_toolbar',
+    'social.apps.django_app.default',
     'bootstrap3',
     'rest_framework',
     'rest_framework.authtoken',
@@ -48,6 +49,13 @@ INSTALLED_APPS = (
     'fredslist',
     'api',
 
+)
+
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.twitter.TwitterOAuth',
+    'django.contrib.auth.backends.ModelBackend',
+    'social.backends.facebook.FacebookOAuth2',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -60,6 +68,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+
 )
 
 ROOT_URLCONF = 'freds_list.urls'
@@ -71,10 +80,10 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
+
                 'django.contrib.messages.context_processors.messages',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -154,12 +163,13 @@ REST_FRAMEWORK = {
 
 }
 
+
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
-EMAIL_BACKEND = "sgbackend.SendGridBackend"
-SENDGRID_USER = os.environ['SENDGRID_USER']
-SENDGRID_PASSWORD = os.environ['SENDGRID_PASSWORD']
+# EMAIL_BACKEND = "sgbackend.SendGridBackend"
+# SENDGRID_USER = os.environ['SENDGRID_USER']
+# SENDGRID_PASSWORD = os.environ['SENDGRID_PASSWORD']
 
 
 CACHES = {
@@ -213,3 +223,7 @@ CACHES = {
 #
 # }
 #
+
+
+# SOCIAL_AUTH_FACEBOOK_KEY = …
+# SOCIAL_AUTH_FACEBOOK_SECRET = …
