@@ -1,7 +1,7 @@
 # Fred's List Social Auth
 
 ## Description
-Using python-social-auth implement at least 2 different social authentication options in addition to the username/password option. 
+Using python-social-auth implement at least 2 different social authentication options in addition to the username/password option.
 
 ## Details
 
