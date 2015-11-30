@@ -80,7 +80,18 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
+                'django.contrib.auth.context_processors.auth',
+                'django.core.context_processors.debug',
+                'django.core.context_processors.i18n',
+                'django.core.context_processors.media',
+                'django.core.context_processors.static',
+                'django.core.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
                 'social.apps.django_app.context_processors.backends',
                 'social.apps.django_app.context_processors.login_redirect',
@@ -135,6 +146,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/home'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/home'
 
 
 REST_FRAMEWORK = {
@@ -225,5 +237,8 @@ CACHES = {
 #
 
 
-# SOCIAL_AUTH_FACEBOOK_KEY = …
-# SOCIAL_AUTH_FACEBOOK_SECRET = …
+SOCIAL_AUTH_FACEBOOK_KEY = "1085835404768701"
+SOCIAL_AUTH_FACEBOOK_SECRET = "158c19308bc19e38bbbbff2df1051ab2"
+
+SOCIAL_AUTH_TWITTER_KEY = 'wgnRgPMEGVW4B8AcgBHh07x0U'
+SOCIAL_AUTH_TWITTER_SECRET = 't0yiUinbdK4PIybSODPdvmWTSRLpLjIprQkd3KUwTd6yz4mV1e'
